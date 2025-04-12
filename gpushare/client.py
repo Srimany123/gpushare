@@ -124,10 +124,17 @@ class GPUShareClient:
         return self._parse_response(r)
 
     def get_gpu_detail(self):
+        """
+        Fetch metadata for the selected GPU.
+        Returns a dict on success, or None if the endpoint returns 404.
+        """
         if self.gpu_id is None:
             raise APIError("Select a GPU first.")
         url = f"{self.base}/api/gpu_detail/{self.gpu_id}"
         r = self.session.get(url, headers=self._auth_headers())
+        if r.status_code == 404:
+            # Endpoint missing or no access: return None
+            return None
         return self._parse_response(r)
 
     def request_access(self, code: str = None):
