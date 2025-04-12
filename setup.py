@@ -6,7 +6,7 @@ setup(
     description="Client library for the GPU Share service",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    author="Your Name",
+    author="SrimanYalavarthi",
     url="https://github.com/Srimany123/gpushare",
     packages=find_packages(),
     install_requires=[
