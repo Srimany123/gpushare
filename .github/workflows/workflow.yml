@@ -1,0 +1,33 @@
+name: Publish Python package
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  id-token: write    # Required for OIDC
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install build tools
+        run: pip install --upgrade build twine
+
+      - name: Build distribution
+        run: python -m build
+
+      - name: Publish to PyPI via OIDC
+        uses: pypa/gh-action-pypi-publish@v2
+        with:
+          project_name: ${{ secrets.PYPI_PROJECT }}
