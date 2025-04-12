@@ -1,9 +1,5 @@
+# gpushare/exceptions.py
 
----
-
-### 3. `gpushare/exceptions.py`
-
-```python
 class GPUShareError(Exception):
     """Base exception for gpushare."""
     pass
@@ -19,3 +15,4 @@ class AuthorizationError(GPUShareError):
 class APIError(GPUShareError):
     """Raised on non‑200 API responses."""
     pass
+
