@@ -59,8 +59,12 @@ class GPUShareClient:
         print("API token acquired.")
 
     def set_api_token(self, token: str):
-        if not token.startswith("pypi-"):
-            raise AuthenticationError("API token must start with 'pypi-'")
+        """
+        Directly set a pre‑obtained API token. 
+        Bypass login/OTP flow.
+        """
+        if not token or not isinstance(token, str):
+            raise AuthenticationError("API token must be a non‑empty string.")
         self.token = token
         self.authenticated = True
         print("API token set; you are now authenticated.")
