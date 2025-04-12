@@ -7,7 +7,7 @@ setup(
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="Your Name",
-    url="https://github.com/yourusername/gpushare",
+    url="https://github.com/Srimany123/gpushare",
     packages=find_packages(),
     install_requires=[
         "requests>=2.25.0"
