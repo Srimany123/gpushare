@@ -5,7 +5,55 @@ from datetime import datetime
 from .exceptions import AuthenticationError, AuthorizationError, APIError
 
 class GPUShareClient:
-    # ... [init, login, verify_otp, get_api_token, set_api_token unchanged] ...
+    def __init__(self, base_url: str):
+        self.base = base_url.rstrip("/")
+        self.session = requests.Session()
+        self.token = None
+        self.authenticated = False
+        self.gpu_id = None
+        self.mode = "user"
+        self.allowed_roles = []
+
+    def login(self, email: str, password: str, token: str, mode: str = "user"):
+        if mode not in ("user","owner","admin","moderator"):
+            raise ValueError("Mode must be one of user, owner, admin, moderator.")
+        self.mode = mode
+        url = f"{self.base}/login"
+        r = self.session.post(url, json={
+            "email": email,
+            "password": password,
+            "token": token,
+            "mode": mode,
+            "gpu_id": self.gpu_id or 0
+        })
+        if r.status_code != 200:
+            raise AuthenticationError(r.text)
+        print("OTP sent to your email.")
+        self.authenticated = False
+
+    def verify_otp(self, otp: str):
+        url = f"{self.base}/verify_otp"
+        r = self.session.post(url, json={"otp": otp})
+        if r.status_code != 200:
+            raise AuthenticationError(r.text)
+        print("Login successful.")
+        self.authenticated = True
+
+    def get_api_token(self):
+        url = f"{self.base}/get_api_token"
+        r = self.session.get(url)
+        if r.status_code != 200:
+            raise APIError("Failed to get API token")
+        m = re.search(r"<pre.*?>([\w\-\._~\+/=]+)</pre>", r.text)
+        if not m:
+            raise APIError("API token not found")
+        self.token = m.group(1)
+        print("API token acquired.")
+
+    def set_api_token(self, token: str):
+        self.token = token
+        self.authenticated = True
+        print("API token set; you are now authenticated.")
 
     def _auth_headers(self):
         if not self.token:
