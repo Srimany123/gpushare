@@ -144,9 +144,12 @@ class GPUShareClient:
         if not self.token:
             raise AuthenticationError("No API token set.")
         url = f"{self.base}/api/token_info"
-        r = self.session.get(url, headers=self._auth_headers())
-        data = self._parse_response(r)
-        return data
+        data = self._parse_response(self.session.get(url, headers=self._auth_headers()))
+        return {
+            "created_at": data["created_at"],
+            "expires_at": data["expires_at"],
+            "revoked": data["revoked"]
+        }
 
     def refresh_token(self):
         """
