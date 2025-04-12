@@ -2,7 +2,7 @@
 
 import re, requests
 from datetime import datetime
-from .exceptions import AuthenticationError, AuthorizationError, APIError
+from .exceptions import AuthenticationError, AuthorizationError, APIError, TokenExpiredError, TokenRevokedError
 
 class GPUShareClient:
     def __init__(self, base_url: str):
