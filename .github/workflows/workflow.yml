@@ -28,6 +28,6 @@ jobs:
         run: python -m build
 
       - name: Publish to PyPI via OIDC
-        uses: pypa/gh-action-pypi-publish@v2
+        uses: pypa/gh-action-pypi-publish@v0.1.0
         with:
           project_name: ${{ secrets.PYPI_PROJECT }}
