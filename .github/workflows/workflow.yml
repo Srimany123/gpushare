@@ -31,4 +31,4 @@ jobs:
         uses: pypa/gh-action-pypi-publish@v1.5.1
         with:
           user: "__token__"
-          project_name: ${{ secrets.PYPI_TOKEN  }}
+          password: ${{ secrets.PYPI_TOKEN  }}
