@@ -316,3 +316,27 @@ class GPUShareClient:
         print("API token revoked.")
         self.token = None
         self.authenticated = False
+
+    def run_file(self, filepath: str):
+        """
+        Read a local .py file, send it to the GPU, and execute.
+        Returns the execution output.
+        """
+        if self.gpu_id is None:
+            raise APIError("Select a GPU first.")
+
+        if not os.path.isfile(filepath):
+            raise APIError(f"File not found: {filepath}")
+
+        with open(filepath, "rb") as f:
+            b64 = base64.b64encode(f.read()).decode("utf-8")
+
+        url = f"{self.base}/api/execute_code/{self.gpu_id}"
+        payload = {
+            "filename": os.path.basename(filepath),
+            "file_data": b64
+        }
+        r = self.session.post(url, headers=self._auth_headers(), json=payload)
+        data = self._parse_response(r)
+        # data could be dict with "output" or text
+        return data.get("output") if isinstance(data, dict) else data
