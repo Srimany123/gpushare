@@ -6,6 +6,7 @@ from datetime import datetime
 from .exceptions import (
     GPUShareError, AuthenticationError, AuthorizationError, APIError
 )
+import os
 
 class GPUShareClient:
     def __init__(self, base_url: str):
