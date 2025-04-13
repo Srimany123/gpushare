@@ -287,7 +287,7 @@ class GPUShareClient:
         # If JSON, expect an "output" key; otherwise, return raw text
         if isinstance(data, dict) and "output" in data:
             return data["output"]
-        return data
+        return data.get("output", data)
 
 
     def run_file(self, filepath: str):
