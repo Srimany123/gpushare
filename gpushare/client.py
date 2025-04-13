@@ -240,6 +240,23 @@ class GPUShareClient:
         r = self.session.post(url, headers=self._auth_headers())
         return self._parse_response(r)
 
+    def set_gpu_idle(self, idle: bool):
+        """
+        If in owner mode, mark the selected GPU as idle or busy.
+        """
+        if self.mode != "owner":
+            raise AuthorizationError("Only owners can set GPU idle status.")
+        if self.gpu_id is None:
+            raise APIError("No GPU selected.")
+
+        url = f"{self.base}/api/set_gpu_idle/{self.gpu_id}"
+        r = self.session.post(
+            url,
+            headers=self._auth_headers(),
+            json={"idle": idle}
+        )
+        return self._parse_response(r)
+
     # --------------------
     # Code Review & Execution
     # --------------------
