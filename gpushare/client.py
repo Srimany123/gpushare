@@ -205,7 +205,7 @@ class GPUShareClient:
     # Token Management
     # --------------------
 
-    def get_token_info(self):
+    '''def get_token_info(self):
         """
         Returns a dict with:
           - issued_at: ISO8601 string
@@ -216,8 +216,24 @@ class GPUShareClient:
         url = f"{self.base}/api/token_info"
         r = self.session.get(url, headers=self._auth_headers())
         data = self._parse_response(r)
-        return data
-
+        return data'''
+    
+    def get_token_info(self):
+        """
+        Returns a dict with:
+          - issued_at: ISO8601 string
+          - expires_at: ISO8601 string
+        """
+        if not self.token:
+            raise AuthenticationError("No API token set.")
+        url = f"{self.base}/api/token_info"
+        data = self._parse_response(self.session.get(url, headers=self._auth_headers()))
+        return {
+            "created_at": data["created_at"],
+            "expires_at": data["expires_at"],
+            "revoked": data["revoked"]
+        }
+        
     def refresh_token(self):
         """
         Requests the server to extend your token's expiry.
@@ -271,51 +287,7 @@ class GPUShareClient:
         if isinstance(data, dict) and "output" in data:
             return data["output"]
         return data
-    def get_token_info(self):
-        """
-        Returns a dict with:
-          - issued_at: ISO8601 string
-          - expires_at: ISO8601 string
-        """
-        if not self.token:
-            raise AuthenticationError("No API token set.")
-        url = f"{self.base}/api/token_info"
-        data = self._parse_response(self.session.get(url, headers=self._auth_headers()))
-        return {
-            "created_at": data["created_at"],
-            "expires_at": data["expires_at"],
-            "revoked": data["revoked"]
-        }
 
-    def refresh_token(self):
-        """
-        Requests the server to extend your token's expiry.
-        Returns the new token and expiry.
-        """
-        if not self.token:
-            raise AuthenticationError("No API token to refresh.")
-        url = f"{self.base}/api/refresh_token"
-        r = self.session.post(url, headers=self._auth_headers())
-        data = self._parse_response(r)
-        new_token = data.get("token")
-        if not new_token:
-            raise APIError("Server did not return a new token.")
-        self.token = new_token
-        print("API token refreshed; new expiry:", data.get("expires_at"))
-        return data
-
-    def kill_token(self):
-        """
-        Revokes the current API token so it can no longer be used.
-        """
-        if not self.token:
-            raise AuthenticationError("No API token to revoke.")
-        url = f"{self.base}/api/revoke_token"
-        r = self.session.post(url, headers=self._auth_headers())
-        self._parse_response(r)
-        print("API token revoked.")
-        self.token = None
-        self.authenticated = False
 
     def run_file(self, filepath: str):
         """
