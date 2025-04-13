@@ -140,7 +140,7 @@ class GPUShareClient:
     def request_access(self, code: str = None):
         if self.gpu_id is None:
             raise APIError("Select a GPU first.")
-        url = f"{self.base}/request_gpu/{self.gpu_id}"
+        url = f"{self.base}/api/request_gpu/{self.gpu_id}"
         payload = {}
         if code:
             payload["code"] = code
@@ -148,28 +148,28 @@ class GPUShareClient:
         return self._parse_response(r)
 
     def get_my_requests(self):
-        url = f"{self.base}/my_requests"
+        url = f"{self.base}/api/my_requests"
         r = self.session.get(url, headers=self._auth_headers())
         return self._parse_response(r)
 
     def approve_request(self, req_id: int):
         if self.mode not in ("owner","admin","moderator"):
             raise AuthorizationError("Cannot approve in current mode.")
-        url = f"{self.base}/approve_request/{req_id}"
+        url = f"{self.base}/api/approve_request/{req_id}"
         r = self.session.post(url, headers=self._auth_headers())
         return self._parse_response(r)
 
     def deny_request(self, req_id: int):
         if self.mode not in ("owner","admin","moderator"):
             raise AuthorizationError("Cannot deny in current mode.")
-        url = f"{self.base}/deny_request/{req_id}"
+        url = f"{self.base}/api/deny_request/{req_id}"
         r = self.session.post(url, headers=self._auth_headers())
         return self._parse_response(r)
 
     def revoke_access(self, request_id: int):
         if self.mode not in ("owner","admin","user"):
             raise AuthorizationError("Cannot revoke in current mode.")
-        url = f"{self.base}/revoke_access/{request_id}"
+        url = f"{self.base}/api/revoke_access/{request_id}"
         r = self.session.post(url, headers=self._auth_headers())
         return self._parse_response(r)
 
@@ -178,7 +178,7 @@ class GPUShareClient:
     # --------------------
 
     def download_reviewed_code(self, review_id: int, dest_path: str):
-        url = f"{self.base}/download_review/{review_id}"
+        url = f"{self.base}/api/download_review/{review_id}"
         r = self.session.get(url, headers=self._auth_headers(), stream=True)
         if r.status_code != 200:
             raise APIError("Failed to download reviewed code.")
@@ -188,7 +188,7 @@ class GPUShareClient:
         print(f"Review {review_id} downloaded to {dest_path}")
 
     def run_reviewed_code(self, review_id: int):
-        url = f"{self.base}/run_reviewed_code/{review_id}"
+        url = f"{self.base}/api/run_reviewed_code/{review_id}"
         r = self.session.get(url, headers=self._auth_headers())
         return self._parse_response(r)
 
