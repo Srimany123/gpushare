@@ -214,10 +214,10 @@ except APIError as e:
 ```
 
 Currently only support Windows and RTX only Tested and remaining lack of resources to test.</br>
-you can download the host agent for windows from the button below:</br>
-<button onclick="window.location.href='https://example.com';">
+you can download the host agent for windows from the link below:</br>
+<a href="https://example.com" class="btn btn-primary">
   Download Host Agent
-</button>
+</a>
 
 
 
