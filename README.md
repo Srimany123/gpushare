@@ -3,11 +3,12 @@
 Python client for the GPU Share service.
 
 ## Installation
-
 ```bash
 pip install gpushare
 ```
-
+pypi library <a href="https://pypi.org/project/gpushare/" class="btn btn-primary">
+  gpushare
+</a>
 ## Quickstart
 ```python
 from gpushare import GPUShareClient, AuthenticationError, APIError
@@ -215,7 +216,7 @@ except APIError as e:
 
 Currently only support Windows and RTX only Tested and remaining lack of resources to test.</br>
 you can download the host agent for windows from the link below:</br>
-<a href="https://example.com" class="btn btn-primary">
+<a href="https://cloud.srimanhq.com/index.php/s/8wKYeNRn2pQriG2" class="btn btn-primary">
   Download Host Agent
 </a>
 
