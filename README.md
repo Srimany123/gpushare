@@ -8,7 +8,7 @@ Python client for the GPU Share service.
 pip install gpushare
 ```
 
-#Quickstart
+# Quickstart
 ```python
 from gpushare import GPUShareClient, AuthenticationError, APIError
 
