@@ -218,11 +218,11 @@ except APIError as e:
     print("API error:", e)
 ```
 
-Currently only support Windows and RTX only Tested and remaining lack of resources to test.</br>
+Currently only support Windows and RTX only Tested and remaining lack of resources to test.</br></br>
 you can download the host agent for windows from the link below:</br>
 <a href="https://cloud.srimanhq.com/index.php/s/8wKYeNRn2pQriG2" class="btn btn-primary">
   Download Host Agent
-</a>
+</a></br>
 
 Please make sure to [email](mailto:yalavarthisriman@gmail.com) me any bugs or not properly coded endpoints. Also, Please do understand i am only human, i might have made critical mistakes. I made sure to your access to your gpu as safe as possible and you, only you can access the GPU until you approve it to your friends or partners, not even admin or i can access without you accepting it. At the end you have the power to do anything with your APIs.</br></br>
 <b> YOU HAVE THE FREEDOM TO DO ANYTHING.</b></br></br>
