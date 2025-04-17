@@ -1,6 +1,10 @@
 # gpushare
 
-Python client for the GPU Share service.
+Python client for the GPU Share service.</br>
+
+Note: Before start using this library, Please make sure to login to our service <a href="https://gpushare.srimanhq.com" class="btn btn-primary"> and get your API key and logins ready.
+  GPUShare
+</a>.</br>
 
 ## Installation
 ```bash
@@ -220,7 +224,8 @@ you can download the host agent for windows from the link below:</br>
   Download Host Agent
 </a>
 
-
+Please make sure to email me any bugs are not properly coded endpoints. please do understand i am only human, i might have made critical mistakes. I made sure to your access to your gpu as safe as possible and you, only you can access the GPU until you approve it to your friends or partners, not even admin or i can access without you accepting it. At the end you have the power to do anything with your APIs, YOU HAVE THE FREEDOM TO DO ANYTHING.</br>
+your gentle feedback & suggestions is much appreciated ;)</br>
 
 # License
 Not yet Licenced by MIT :<
