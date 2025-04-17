@@ -215,9 +215,10 @@ except APIError as e:
 
 Currently only support Windows and RTX only Tested and remaining lack of resources to test.</br>
 you can download the host agent for windows from the button below:</br>
-<a href="https://example.com" class="btn btn-primary">
+<button onclick="window.location.href='https://example.com';">
   Download Host Agent
-</a>
+</button>
+
 
 
 # License
