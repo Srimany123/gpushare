@@ -2,9 +2,9 @@
 
 Python client for the GPU Share service.</br>
 
-Note: Before start using this library, Please make sure to login to our service and get your API key and logins ready. <a href="https://gpushare.srimanhq.com" class="btn btn-primary">
+Note: Before start using this library, Please make sure to login to our service <a href="https://gpushare.srimanhq.com" class="btn btn-primary">
   GPUShare
-</a>.</br>
+</a>.</br> and get your API key and logins ready. 
 
 ## Installation
 ```bash
