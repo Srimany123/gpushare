@@ -8,13 +8,14 @@ Python client for the GPU Share service.
 pip install gpushare
 ```
 
+#Quickstart
 ```python
 from gpushare import GPUShareClient, AuthenticationError, APIError
 
 client = GPUShareClient("https://gpushare.srimanhq.com")
 
 # 1. Authenticate (OTP flow):
-client.login("you@example.com", "yourpassword", "8CharTkN")
+client.login("you@example.com", "yourpassword", "8bit string")
 # then enter the OTP when prompted
 
 # or, if you already have a token:
