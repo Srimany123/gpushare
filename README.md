@@ -28,3 +28,17 @@ client.select_gpu(1)
 output = client.execute_code("print('Hello from GPU!')")
 print(output)
 ```
+
+
+## API Reference
+### Authentication
+login(email: str, password: str, random_token: str, mode: str = "user")
+Starts the OTP login flow, sending an OTP to your email/device.
+
+```python
+client.login("you@example.com", "pass123", "AbCd1234")
+# prompts for OTP, then calls verify_otp() internally
+```
+
+verify_otp(email: str, otp: str)
+
