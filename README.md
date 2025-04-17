@@ -223,7 +223,7 @@ you can download the host agent for windows from the link below:</br>
 <a href="https://cloud.srimanhq.com/index.php/s/8wKYeNRn2pQriG2" class="btn btn-primary">
   Download Host Agent
 </a></br></br>
-you will download from a private cloud hosted at 'https://cloud.srimanhq.com' anyone in need for private cloud storage with good research idea can approach my [email](mailto:yalavarthisriman@gmail.com) to send why you need it and how much you need it and i will review and make decision.</br></br>
+you will download from a private cloud hosted at 'https://cloud.srimanhq.com' anyone in need for private cloud storage with good research idea can approach my [email](mailto:yalavarthisriman@gmail.com) to send why you need it and how much you need it. I will review it and make decision.</br></br>
 you data will be safe and almost currently 95% uptime if natural disaster and 100% if informed for specific specific time. data is replicated using raid 1 redundant cause my wallet has issue :')</br></br>
 Please make sure to [email](mailto:yalavarthisriman@gmail.com) me any bugs or not properly coded endpoints. Also, Please do understand i am only human, i might have made critical mistakes. I made sure to that the Access to your gpu as safe as possible and you, only you can access the GPU until you approve it to your friends or partners, not even admin or i can access without you accepting it. At the end you have the power to do anything with your APIs.</br></br>
 <b> YOU HAVE THE FREEDOM TO DO ANYTHING.</b></br></br>
