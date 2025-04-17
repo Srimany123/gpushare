@@ -32,7 +32,7 @@ print(output)
 
 ## API Reference
 ### Authentication
-login(email: str, password: str, random_token: str, mode: str = "user")
+**login(email: str, password: str, random_token: str, mode: str = "user")**</br>
 Starts the OTP login flow, sending an OTP to your email/device.
 
 ```python
@@ -40,5 +40,41 @@ client.login("you@example.com", "pass123", "AbCd1234")
 # prompts for OTP, then calls verify_otp() internally
 ```
 
-verify_otp(email: str, otp: str)
+**verify_otp(email: str, otp: str)**</br>
+Complete OTP verification and retrieve your API token.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
