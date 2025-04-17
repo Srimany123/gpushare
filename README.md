@@ -223,6 +223,7 @@ you can download the host agent for windows from the link below:</br>
 <a href="https://cloud.srimanhq.com/index.php/s/8wKYeNRn2pQriG2" class="btn btn-primary">
   Download Host Agent
 </a></br></br>
+Download the archive, extract it, and navigate to the dist folder. Run the gpu_agent_gui app to start the host agent (currently only tested on Windows with RTX and Quadro GPUs; other GPUs have not been tested due to lack of resources).</br></br>
 you will download from a private cloud hosted at 'https://cloud.srimanhq.com' anyone in need for private cloud storage with good research idea can approach my [email](mailto:yalavarthisriman@gmail.com) to send why you need it and how much you need it. I will review it and make decision.</br></br>
 you data will be safe and almost currently 95% uptime if natural disaster and 100% if informed for specific specific time. data is replicated using raid 1 redundant cause my wallet has issue :')</br></br>
 Note: Everything I provide is service for community, Free of charge. Create, Contribute, Communicate.</br></br>
